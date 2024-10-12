@@ -11,6 +11,7 @@ import model.Course;
 import model.CourseDefinition;
 import model.Semester;
 import model.Student;
+import model.StudentRegistration;
 import model.Teacher;
 
 public class HibernateUtil {
@@ -34,6 +35,7 @@ public class HibernateUtil {
 		configuration.addAnnotatedClass(AcademicUnit.class);
 		configuration.addAnnotatedClass(Teacher.class);
 		configuration.addAnnotatedClass(CourseDefinition.class);
+		configuration.addAnnotatedClass(StudentRegistration.class);
 		
 		sessionFactory = configuration.buildSessionFactory();
 		return sessionFactory;

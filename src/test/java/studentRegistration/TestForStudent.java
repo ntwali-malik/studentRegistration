@@ -4,22 +4,29 @@ import static org.junit.Assert.*;
 
 import java.util.Date;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import Controller.StudentController;
 import model.Student;
 
 public class TestForStudent {
+	
+	private StudentController studentController;
+	
+	 @Before
+	    public void setUp() {
+	        studentController = new StudentController();
+	    }
 
     @Test
     public void test() {
-        StudentController studentController = new StudentController();
-        // Correct constructor call
-        Student student = new Student("123", "Malik", "2022-10-01"); 
-        
-        assertEquals("Saved", studentController.saveStudent(student));
-        // Remove the fail statement as it's just for placeholder
-        // fail("Not yet implemented");  
+    	 // Create a new student object without a registration number
+        Student student = new Student("Aline", "1995-05-01");
+
+        // Save the student and assert the response
+        String result = studentController.saveStudent(student);
+        assertEquals("Student saved successfully", result);
     }
 
 }

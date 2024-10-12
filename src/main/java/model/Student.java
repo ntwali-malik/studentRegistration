@@ -18,8 +18,13 @@ public class Student {
     @Column(name = "date_of_birth", nullable = false)
     private String dateOfBirth;
 
-    // Constructors, getters, and setters
-
+ // Constructor for creating a new student without registration number
+    public Student(String firstName, String dateOfBirth) {
+        this.firstName = firstName;
+        this.dateOfBirth = dateOfBirth;
+    }
+    
+    // Constructor for retrieving an existing student from the database
     public Student(Long regNo, String firstName, String dateOfBirth) {
         this.regNo = regNo;
         this.firstName = firstName;

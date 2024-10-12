@@ -16,8 +16,13 @@ public class AcademicUnit {
 	@Column(name = "name", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "academicUnit", cascade = CascadeType.ALL)
-    private List<Course> courses;
+	@Column(name = "academic_unit_type")
+    @Enumerated(EnumType.STRING)
+    private EAcademicUnit academicUnitType;
+	
+	 @ManyToOne
+	    @JoinColumn(name = "parent_id")
+	    private AcademicUnit parentId;
 
 	public String getCode() {
 		return code;
@@ -35,13 +40,23 @@ public class AcademicUnit {
 		this.name = name;
 	}
 
-	public List<Course> getCourses() {
-		return courses;
+	public EAcademicUnit getAcademicUnitType() {
+		return academicUnitType;
 	}
 
-	public void setCourses(List<Course> courses) {
-		this.courses = courses;
+	public void setAcademicUnitType(EAcademicUnit academicUnitType) {
+		this.academicUnitType = academicUnitType;
 	}
+
+	public AcademicUnit getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(AcademicUnit parentId) {
+		this.parentId = parentId;
+	}
+	
+	
     
     
 }
